@@ -1,0 +1,321 @@
+ <!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Grace Era - Vintage Clothing</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+
+  <!-- Navbar -->
+  <header class="bg-pink-100 shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-pink-800">Grace Era</h1>
+      <nav class="space-x-6 text-pink-700 font-medium flex items-center">
+        <a href="#gallery" class="hover:underline">Gallery</a>
+        <a href="#reviews" class="hover:underline">Reviews</a>
+        <a href="#about" class="hover:underline">About</a>
+        <a href="#contact" class="hover:underline">Contact</a>
+
+        <!-- Cart Icon -->
+        <button id="cart-button" class="ml-6 relative focus:outline-none" aria-label="View Cart">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-pink-700 hover:text-pink-900" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2 9m5-9v9m4-9v9m5-9l2 9" />
+          </svg>
+          <span id="cart-count" class="absolute -top-2 -right-2 bg-pink-600 text-white text-xs rounded-full px-1.5 py-0.5 font-bold">0</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="bg-pink-50 text-center py-16 px-4">
+    <h2 class="text-4xl font-bold text-pink-800 mb-4">Timeless Vintage Fashion</h2>
+    <p class="text-lg text-pink-600 max-w-xl mx-auto">
+      Discover elegance from the past — curated styles that echo the grace of bygone eras.
+    </p>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="py-12 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl font-semibold text-center text-pink-700 mb-8">Our Collection</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+
+        <!-- Product cards with data attributes for JS -->
+        <div class="border rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 flex flex-col">
+          <img src="https://i.pinimg.com/736x/4e/d6/4d/4ed64da3e4530c99f7be9a039d15a8ba.jpg" alt="Vintage Floral Dress" class="w-full object-cover h-72" />
+          <div class="p-4 bg-pink-50 text-center flex flex-col flex-grow">
+            <h3 class="text-lg font-semibold text-pink-700 mb-2">Vintage Floral Dress</h3>
+            <p class="text-pink-600 font-bold mb-4">$120</p>
+            <button class="mt-auto bg-pink-600 text-white rounded-md px-4 py-2 hover:bg-pink-700 transition add-to-cart"
+              data-name="Vintage Floral Dress" data-price="120">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div class="border rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 flex flex-col">
+          <img src="https://i.pinimg.com/736x/00/33/ce/0033cef3aa7beaac94562cad2ce847c3.jpg" alt="Classic Lace Gown" class="w-full object-cover h-72" />
+          <div class="p-4 bg-pink-50 text-center flex flex-col flex-grow">
+            <h3 class="text-lg font-semibold text-pink-700 mb-2">Classic Lace Gown</h3>
+            <p class="text-pink-600 font-bold mb-4">$150</p>
+            <button class="mt-auto bg-pink-600 text-white rounded-md px-4 py-2 hover:bg-pink-700 transition add-to-cart"
+              data-name="Classic Lace Gown" data-price="150">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div class="border rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 flex flex-col">
+          <img src="https://i.pinimg.com/736x/b5/71/b5/b571b50b558dcff07937be62a12d8fb0.jpg" alt="Retro Polka Dot Dress" class="w-full object-cover h-72" />
+          <div class="p-4 bg-pink-50 text-center flex flex-col flex-grow">
+            <h3 class="text-lg font-semibold text-pink-700 mb-2">Retro Polka Dot Dress</h3>
+            <p class="text-pink-600 font-bold mb-4">$95</p>
+            <button class="mt-auto bg-pink-600 text-white rounded-md px-4 py-2 hover:bg-pink-700 transition add-to-cart"
+              data-name="Retro Polka Dot Dress" data-price="95">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- Add remaining products similarly -->
+        <div class="border rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 flex flex-col">
+          <img src="https://i.pinimg.com/736x/c1/27/66/c127669b4a1662f31fdbd6be45ac3d29.jpg" alt="Elegant Evening Dress" class="w-full object-cover h-72" />
+          <div class="p-4 bg-pink-50 text-center flex flex-col flex-grow">
+            <h3 class="text-lg font-semibold text-pink-700 mb-2">Elegant Evening Dress</h3>
+            <p class="text-pink-600 font-bold mb-4">$180</p>
+            <button class="mt-auto bg-pink-600 text-white rounded-md px-4 py-2 hover:bg-pink-700 transition add-to-cart"
+              data-name="Elegant Evening Dress" data-price="180">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div class="border rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 flex flex-col">
+          <img src="https://i.pinimg.com/736x/0d/09/4f/0d094ffd057ca42dc811f1563e21b5ed.jpg" alt="Boho Chic Dress" class="w-full object-cover h-72" />
+          <div class="p-4 bg-pink-50 text-center flex flex-col flex-grow">
+            <h3 class="text-lg font-semibold text-pink-700 mb-2">Boho Chic Dress</h3>
+            <p class="text-pink-600 font-bold mb-4">$110</p>
+            <button class="mt-auto bg-pink-600 text-white rounded-md px-4 py-2 hover:bg-pink-700 transition add-to-cart"
+              data-name="Boho Chic Dress" data-price="110">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div class="border rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 flex flex-col">
+          <img src="https://i.pinimg.com/736x/7f/d8/85/7fd88522914ee220fc17f17679360f4c.jpg" alt="Retro Striped Dress" class="w-full object-cover h-72" />
+          <div class="p-4 bg-pink-50 text-center flex flex-col flex-grow">
+            <h3 class="text-lg font-semibold text-pink-700 mb-2">Retro Striped Dress</h3>
+            <p class="text-pink-600 font-bold mb-4">$105</p>
+            <button class="mt-auto bg-pink-600 text-white rounded-md px-4 py-2 hover:bg-pink-700 transition add-to-cart"
+              data-name="Retro Striped Dress" data-price="105">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div class="border rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 flex flex-col">
+          <img src="https://i.pinimg.com/736x/4e/ff/84/4eff84d0cf652d620a109461b8403226.jpg" alt="Classic Denim Dress" class="w-full object-cover h-72" />
+          <div class="p-4 bg-pink-50 text-center flex flex-col flex-grow">
+            <h3 class="text-lg font-semibold text-pink-700 mb-2">Classic Denim Dress</h3>
+            <p class="text-pink-600 font-bold mb-4">$130</p>
+            <button class="mt-auto bg-pink-600 text-white rounded-md px-4 py-2 hover:bg-pink-700 transition add-to-cart"
+              data-name="Classic Denim Dress" data-price="130">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div class="border rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 flex flex-col">
+          <img src="https://i.pinimg.com/736x/32/71/9d/32719d2e5b45c3fc2f03ed3dac49c8f7.jpg" alt="Vintage Midi Dress" class="w-full object-cover h-72" />
+          <div class="p-4 bg-pink-50 text-center flex flex-col flex-grow">
+            <h3 class="text-lg font-semibold text-pink-700 mb-2">Vintage Midi Dress</h3>
+            <p class="text-pink-600 font-bold mb-4">$115</p>
+            <button class="mt-auto bg-pink-600 text-white rounded-md px-4 py-2 hover:bg-pink-700 transition add-to-cart"
+              data-name="Vintage Midi Dress" data-price="115">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <div class="border rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition duration-300 flex flex-col">
+          <img src="https://i.pinimg.com/736x/a8/3c/b7/a83cb7bf7f5693fe49b48a41821d097d.jpg" alt="Classic Tulle Dress" class="w-full object-cover h-72" />
+          <div class="p-4 bg-pink-50 text-center flex flex-col flex-grow">
+            <h3 class="text-lg font-semibold text-pink-700 mb-2">Classic Tulle Dress</h3>
+            <p class="text-pink-600 font-bold mb-4">$140</p>
+            <button class="mt-auto bg-pink-600 text-white rounded-md px-4 py-2 hover:bg-pink-700 transition add-to-cart"
+              data-name="Classic Tulle Dress" data-price="140">
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews Section -->
+  <section id="reviews" class="py-12 bg-pink-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl font-semibold text-pink-700 mb-8 text-center">Customer Reviews</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <div class="bg-white rounded-xl shadow-md p-6">
+          <p class="text-gray-700 italic mb-4">"The Vintage Floral Dress is absolutely gorgeous and fits perfectly. Highly recommend!"</p>
+          <div class="text-pink-600 mb-2">★★★★★</div>
+          <p class="font-semibold text-pink-800">- Emily R.</p>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-md p-6">
+          <p class="text-gray-700 italic mb-4">"Classic Lace Gown made me feel like a queen. Quality fabric and beautiful design."</p>
+          <div class="text-pink-600 mb-2">★★★★☆</div>
+          <p class="font-semibold text-pink-800">- Amanda W.</p>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-md p-6">
+          <p class="text-gray-700 italic mb-4">"The Retro Polka Dot Dress is my new favorite. Great style and such a soft fabric."</p>
+          <div class="text-pink-600 mb-2">★★★★☆</div>
+          <p class="font-semibold text-pink-800">- Jessica L.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-12 bg-white">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-semibold text-pink-700 mb-6">About Grace Era</h2>
+      <p class="text-pink-600 max-w-3xl mx-auto">
+        Grace Era is dedicated to bringing you authentic vintage women's clothing with a modern twist. Each piece is carefully curated for quality and timeless style.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-12 bg-pink-50">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-semibold text-pink-700 mb-6">Get in Touch</h2>
+      <p class="text-pink-600 mb-6">
+        Questions? Interested in custom orders? Reach out to us!
+      </p>
+      <form class="max-w-md mx-auto space-y-4 text-left">
+        <input type="text" placeholder="Your Name" class="w-full px-4 py-2 rounded-md border border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-400" />
+        <input type="email" placeholder="Your Email" class="w-full px-4 py-2 rounded-md border border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-400" />
+        <textarea placeholder="Your Message" rows="4" class="w-full px-4 py-2 rounded-md border border-pink-300 focus:outline-none focus:ring-2 focus:ring-pink-400"></textarea>
+        <button type="submit" class="bg-pink-600 text-white rounded-md px-6 py-2 hover:bg-pink-700 transition w-full">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Cart Modal -->
+  <div id="cart-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-center z-50">
+    <div class="bg-white rounded-lg shadow-lg max-w-lg w-full p-6 relative">
+      <button id="close-cart" class="absolute top-3 right-3 text-pink-700 hover:text-pink-900 text-2xl font-bold focus:outline-none">&times;</button>
+      <h3 class="text-2xl font-semibold text-pink-700 mb-4">Your Cart</h3>
+      <div id="cart-items" class="space-y-4 max-h-96 overflow-y-auto">
+        <!-- Cart items will be dynamically added here -->
+      </div>
+      <div class="mt-6 flex justify-between items-center border-t pt-4">
+        <span class="font-bold text-lg text-pink-700">Total:</span>
+        <span id="cart-total" class="font-bold text-lg text-pink-700">$0</span>
+      </div>
+      <button id="checkout" class="mt-6 w-full bg-pink-600 text-white py-2 rounded-md hover:bg-pink-700 transition">Checkout</button>
+    </div>
+  </div>
+
+  <!-- JavaScript for Cart -->
+  <script>
+    const cart = [];
+    const cartCountElem = document.getElementById('cart-count');
+    const cartButton = document.getElementById('cart-button');
+    const cartModal = document.getElementById('cart-modal');
+    const closeCartBtn = document.getElementById('close-cart');
+    const cartItemsContainer = document.getElementById('cart-items');
+    const cartTotalElem = document.getElementById('cart-total');
+    const checkoutBtn = document.getElementById('checkout');
+
+    function updateCartCount() {
+      cartCountElem.textContent = cart.length;
+      cartCountElem.style.display = cart.length === 0 ? 'none' : 'inline-block';
+    }
+
+    function renderCart() {
+      cartItemsContainer.innerHTML = '';
+      let total = 0;
+      if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<p class="text-gray-600 text-center">Your cart is empty.</p>';
+        cartTotalElem.textContent = '$0';
+        return;
+      }
+      cart.forEach((item, index) => {
+        total += item.price;
+        const itemDiv = document.createElement('div');
+        itemDiv.classList.add('flex', 'justify-between', 'items-center', 'border-b', 'pb-2');
+        itemDiv.innerHTML = `
+          <div>
+            <p class="font-semibold text-pink-700">${item.name}</p>
+            <p class="text-pink-600">$${item.price}</p>
+          </div>
+          <button class="text-red-500 hover:text-red-700 font-bold" data-index="${index}">&times;</button>
+        `;
+        cartItemsContainer.appendChild(itemDiv);
+
+        // Remove button handler
+        itemDiv.querySelector('button').addEventListener('click', (e) => {
+          const idx = e.target.getAttribute('data-index');
+          cart.splice(idx, 1);
+          updateCartCount();
+          renderCart();
+        });
+      });
+      cartTotalElem.textContent = '$' + total;
+    }
+
+    // Initialize cart count visibility
+    updateCartCount();
+
+    // Add to Cart button clicks
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+      button.addEventListener('click', () => {
+        const name = button.getAttribute('data-name');
+        const price = parseFloat(button.getAttribute('data-price'));
+        cart.push({name, price});
+        updateCartCount();
+        alert(`${name} added to cart!`);
+      });
+    });
+
+    // Open cart modal
+    cartButton.addEventListener('click', () => {
+      renderCart();
+      cartModal.classList.remove('hidden');
+      cartModal.classList.add('flex');
+    });
+
+    // Close cart modal
+    closeCartBtn.addEventListener('click', () => {
+      cartModal.classList.add('hidden');
+      cartModal.classList.remove('flex');
+    });
+
+    // Checkout button action (simple alert)
+    checkoutBtn.addEventListener('click', () => {
+      if(cart.length === 0) {
+        alert('Your cart is empty.');
+        return;
+      }
+      alert(`Thank you for your purchase of ${cart.length} items totaling ${cartTotalElem.textContent}!`);
+      cart.length = 0; // Clear cart
+      updateCartCount();
+      renderCart();
+      cartModal.classList.add('hidden');
+      cartModal.classList.remove('flex');
+    });
+  </script>
+
+</body>
+</html>
