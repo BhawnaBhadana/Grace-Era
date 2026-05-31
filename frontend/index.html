@@ -952,7 +952,7 @@
 
 <script>
 'use strict';
-const API = 'http://localhost:5000/api';
+const API = 'http://127.0.0.1:5000/api';
 
 const PRODUCT_IMAGES = [
   'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600&q=80',
@@ -1502,7 +1502,12 @@ async function addToCartById(productId, qty=1){
   try{
     const res = await fetch(`${API}/cart`,{
       method:'POST', headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({userId:getUserId(), productId, quantity:qty})
+      body:JSON.stringify({
+        userId:getUserId(), productId, quantity:qty,
+        name:prod.name,
+        unitPrice:prod.price,
+        image:getProductImage(prod, allProducts.indexOf(prod))
+      })
     });
     const data = await res.json();
     if(data.success){ cartItems=data.data.items; updateBadge(); }

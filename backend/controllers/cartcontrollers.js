@@ -27,6 +27,10 @@ const upsertCartItem = asyncHandler(async (req, res) => {
   const userId = validator.trim(req.body.userId || "");
   const productId = validator.trim(req.body.productId || "");
   const quantity = Number(req.body.quantity || 1);
+  // Accept product details from frontend as fallback
+  const clientName = req.body.name || "";
+  const clientPrice = Number(req.body.unitPrice || req.body.price || 0);
+  const clientImage = req.body.image || "";
 
   if (!userId || !productId) {
     res.status(400);
@@ -38,10 +42,25 @@ const upsertCartItem = asyncHandler(async (req, res) => {
     throw new Error("quantity must be an integer between 1 and 20");
   }
 
-  const product = await Product.findById(productId);
-  if (!product) {
-    res.status(404);
-    throw new Error("Product not found");
+  // Try to find product in DB, fall back to client-provided data
+  let productName = clientName;
+  let productPrice = clientPrice;
+  let productImage = clientImage;
+
+  try {
+    const product = await Product.findById(productId);
+    if (product) {
+      productName = product.name;
+      productPrice = product.price;
+      productImage = product.image;
+    }
+  } catch (e) {
+    // productId is not a mongo ObjectId (e.g. 'p1'), use client data
+  }
+
+  if (!productName || !productPrice) {
+    res.status(400);
+    throw new Error("Product not found and no fallback data provided");
   }
 
   let cart = await Cart.findOne({ userId });
@@ -55,16 +74,16 @@ const upsertCartItem = asyncHandler(async (req, res) => {
 
   if (index > -1) {
     cart.items[index].quantity = quantity;
-    cart.items[index].unitPrice = product.price;
-    cart.items[index].name = product.name;
-    cart.items[index].image = product.image;
+    cart.items[index].unitPrice = productPrice;
+    cart.items[index].name = productName;
+    cart.items[index].image = productImage;
   } else {
     cart.items.push({
-      product: product._id,
-      name: product.name,
-      image: product.image,
+      product: productId,
+      name: productName,
+      image: productImage,
       quantity,
-      unitPrice: product.price
+      unitPrice: productPrice
     });
   }
 

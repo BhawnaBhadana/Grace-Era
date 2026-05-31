@@ -3,10 +3,9 @@ const mongoose = require("mongoose");
 const cartItemSchema = new mongoose.Schema(
   {
     product: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Product",
-      required: true
-    },
+  type: mongoose.Schema.Types.Mixed,  // ← change from ObjectId to Mixed
+  required: true
+},
     name: {
       type: String,
       required: true
@@ -35,7 +34,7 @@ const cartSchema = new mongoose.Schema(
       type: String,
       required: true,
       trim: true
-      // ← removed inline index:true (duplicate was causing warning)
+      // 
     },
     items: {
       type: [cartItemSchema],
