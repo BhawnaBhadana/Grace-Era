@@ -11,14 +11,9 @@ const transporter = nodemailer.createTransport({
 });
 
 const sendOrderEmail = async ({ to, orderId, total, items }) => {
-  if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
-    console.log("❌ Email skipped: SMTP credentials missing");
-    return;
-  }
-
   try {
     const itemsHtml = items
-      .map((item) => `<li>${item.name} x ${item.quantity} - INR ${item.unitPrice}</li>`)
+      .map((item) => `<li>${item.name} x ${item.quantity} - ₹${item.unitPrice}</li>`)
       .join("");
 
     const info = await transporter.sendMail({
@@ -26,11 +21,11 @@ const sendOrderEmail = async ({ to, orderId, total, items }) => {
       to,
       subject: `Order Confirmation #${orderId}`,
       html: `
-        <h2>Thank you for your order!</h2>
+        <h2>Thank you for your order! 🌸</h2>
         <p>Your order <strong>#${orderId}</strong> has been confirmed.</p>
         <ul>${itemsHtml}</ul>
-        <p><strong>Total:</strong> ₹${total}</p>
-        <p>Thank you for shopping with Grace Era 🌸</p>
+        <p><strong>Total: ₹${total}</strong></p>
+        <p>Thank you for shopping with Grace Era!</p>
       `
     });
     console.log("✅ Email sent:", info.messageId, "to:", to);
